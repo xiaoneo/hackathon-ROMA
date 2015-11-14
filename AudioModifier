@@ -1,0 +1,34 @@
+import java.io.*;
+import ddf.minim.*;
+
+public class AudioModifier {
+	public Minim m;
+	AudioPlayer player;
+
+	public AudioModifier(String s) {
+		m = new Minim(this);
+	}
+
+	public String sketchPath(String fileName) {
+		return fileName;
+	}
+
+	public InputStream createInput(String fileName)  {
+		 	try {
+		 		return new FileInputStream(new File("river flows in you.wav"));
+		 		
+		 	} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 	return null;
+		 
+	}
+	
+	public static void main(String[] args) {
+		String name = "river flows in you.wav" ;
+		AudioSample sample = new AudioModifier(name).m.loadSample(name);
+		System.out.println("DONE!!");
+	}
+
+}
